@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+
+    <link rel="stylesheet" href="/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" 
+    integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+
+        <form action="#">
+            <div class="form_control">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" placeholder="Username">
+            </div>
+            <div class="form_control">
+                <i class="fa-solid fa-lock"></i>
+                <input type="text" placeholder="Password">
+            </div>
+
+            <div class="check_forgot">
+                <div class="check">
+                    <input type="checkbox">
+                    <p>Remember me</p>
+                </div>
+                <a href="#">Forgot password</a>
+            </div>
+            <div class="btn">
+                <button type="submit">
+                    Login
+                </button>
+            </div>
+            <div class="register_link">
+                <span>Don't have an Account?<a href="#">Register</a></span>
+            </div>
+             
+        </form>
+    </div>
+    <script>
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    console.log("Ширина body: " + width + "px");
+    console.log("Высота body: " + height + "px");
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,154 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace, sans-serif;
+}
+
+body {
+    background-image: url(./img/5d2108d810.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 600px;
+    height: 600px;
+    border-radius: 10px;
+    margin: 20px;
+    background: rgba(64, 64, 64, 0.15);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(25px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.container h1 {
+    text-align: center;
+    color: white;
+    font-size: 55px;
+    margin-top: 50px;
+    position: relative;
+}
+
+.container h1::after {
+    content: "";
+    width: 50px;
+    height: 4px;
+    background: #fff;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+form {
+    margin-top: 50px;
+    padding: 35px;
+}
+
+form .form_control {
+    margin-bottom: 35px;
+    position: relative;
+}
+
+form .form_control input {
+    padding: 20px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-size: 18px;
+    width: 100%;
+    padding-left: 50px;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+input::plaseholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.form_control input::focus {
+    outline: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.form_control i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px;
+    font-size: 18px;
+    color: #fff;
+}
+
+.check_forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+}
+
+.check_forgot .check {
+    display: flex;
+}
+
+.check_forgot .check input {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.check p {
+    font-size: 18px;
+}
+
+.check_forgot a{
+    font-size: 18px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.check_forgot a:hover {
+    text-decoration: underline;
+}
+
+.btn button {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    margin-top: 30px;
+    cursor: pointer;
+    background: #21a4f1;
+    color: #fff;
+}
+
+.register_link {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+}
+
+.register_link a {
+    color: #fff;
+}
+
+@media screen and (max-width:460px) {
+    .check p {
+    font-size: 14px;
+}
+
+.check_forgot a{
+    font-size: 14px;
+}
+}
