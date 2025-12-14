@@ -492,7 +492,6 @@
 
     .relative {
         position: relative;
-        animation: animate 1s ease-in-out 1 forwards;
     }
 
     .sticky {
@@ -691,7 +690,7 @@
 
     .inline-flex {
         display: inline-flex;
-        animation: animate 1s ease-in-out 1 forwards;
+        border-radius: 10px;
     }
 
     .table {
@@ -961,7 +960,9 @@
     }
 
     .rounded-full {
-        border-radius: 3.40282e+38px
+        border-radius: 15px;
+        width: 70px;
+        height: 70px;
     }
 
     .rounded-lg {
@@ -984,7 +985,6 @@
     .border-2 {
         border-style: var(--tw-border-style);
         border-width: 2px;
-        animation: animate 1s ease-in-out 1 forwards;
     }
 
     .border-t {
@@ -1038,7 +1038,6 @@
 
     .bg-\[\#2563eb\] {
         background-color: rgb(44, 135, 191);
-        animation: animate 1s ease-in-out 1 forwards;
     }
 
     .bg-black {
@@ -1103,7 +1102,6 @@
 
     .bg-white {
         background-color: #292929 !important;
-        animation: animate 1s ease-in-out 1 forwards;
         border-radius: 15px;
 
     }
@@ -1145,17 +1143,12 @@
     .p-4 {
         padding: calc(var(--spacing)*4);
         background-color: rgb(255, 255, 255);
-        animation: animate 1s ease-in-out 1 forwards;
-        animation: appear linear;
-        animation-timeline: view(0);
-        animation-range: entry 0;
         text-align: center;
     }
 
     .p-41 {
         padding: calc(var(--spacing)*4);
         background-color: #292929 !important;
-        animation: animate 1s ease-in-out 1 forwards;
         text-align: center;
         border-bottom-left-radius: 25px;
         border-bottom-right-radius: 25px;
@@ -1218,7 +1211,7 @@
     }
 
     .py-16 {
-        margin-top: -90px;
+        margin-top: -110px;
         padding-block: calc(var(--spacing)*16);
         background-color: #171717;
     }
@@ -1226,7 +1219,7 @@
     .py-17 {
         padding-block: calc(var(--spacing)*16);
         background-color: #171717;
-        margin-top: -40px;
+        margin-top: 10px;
     }
 
     .pt-4 {
@@ -1251,10 +1244,6 @@
 
     .text-center {
         text-align: center;
-        animation: animate 1s ease-in-out 1 forwards;
-        animation: appear linear;
-        animation-timeline: view(0);
-        animation-range: entry 0;
     }
 
     .text-left {
@@ -1273,30 +1262,19 @@
     .text-3xl {
         font-size: var(--text-3xl);
         line-height: var(--tw-leading, var(--text-3xl--line-height));
-        animation: animate 1s ease-in-out 1 forwards;
-        animation: appear linear;
-        animation-timeline: view(0);
-        animation-range: entry 0;
     }
 
     .text-3x2 {
         color: #f7f7f7;
+        margin-bottom: 20px;
         font-size: var(--text-3xl);
         line-height: var(--tw-leading, var(--text-3xl--line-height));
-        animation: animate 1s ease-in-out 1 forwards !important;
-        animation: appear linear;
-        animation-timeline: view(0);
-        animation-range: entry 0;
     }
 
     .text-3x3 {
         color: #f7f7f7;
         font-size: var(--text-3xl);
         line-height: var(--tw-leading, var(--text-3xl--line-height));
-        animation: animate 1s ease-in-out 1 forwards !important;
-        animation: appear linear;
-        animation-timeline: view(0);
-        animation-range: entry 0;
         margin-top: -70px;
     }
 
@@ -1322,7 +1300,6 @@
     }
 
     .text-xlx {
-        animation: animate 1s ease-in-out 1 forwards;
         color: #f7f7f7;
     }
 
@@ -1386,7 +1363,6 @@
 
     .text-gray-600-1 {
         color: #f7f7f7;
-        animation: animate 1s ease-in-out 1 forwards;
     }
 
     .text-gray-700 {
@@ -1666,6 +1642,7 @@ footer {
 footer .blocks {
     display: flex;
     justify-content: space-between;
+    margin-left: 70px;
 }
 
 footer .absolute {
@@ -1683,7 +1660,7 @@ footer .abspc {
 }
 
 footer .blocks p {
-    width: 80%;
+    width: 100%;
     max-width: 300px;
 }
 
@@ -1697,6 +1674,11 @@ footer .blocks ul li {
     opacity: 0.8
 }
 
+footer .ocbl {
+    margin-right: -100px;
+    text-align: center;
+}
+
 footer hr {
     margin-top: 15px;
     margin-bottom: 15px;
@@ -1707,6 +1689,7 @@ footer hr {
 
 footer>p {
     text-align: center;
+    margin-bottom: -30px;
 }
 
 footer .bl {
@@ -2112,18 +2095,6 @@ body {
     border: 2px solid #2563eb;
 }
 
-.text-4xl {
-    animation: animate 1s ease-in-out 1 forwards;
-}
-
-.text-lg {
-    animation: animate 1s ease-in-out 1 forwards;
-}
-
-.btn {
-    animation: animate 1s ease-in-out 1 forwards;
-}
-
 .compl {
     font-weight: bold;
     color: #f7f7f7;
@@ -2142,9 +2113,10 @@ body {
 }
 
 .swapper {
-    height: 100%;
+    width: 1920px;
+    height: 900px;
     background-color: #171717;
-    margin-bottom: -190px;
+    margin-bottom: -220px;
 }
 
 .swapper .timerRunning {
@@ -2205,7 +2177,7 @@ body {
     margin-top: 20px;
     margin-left: -24px;
     margin-bottom: -120px;
-    width: 1604px;
+    width: 1620px;
     left: 175px;
     border-radius: 25px;
     overflow: hidden;
@@ -2624,15 +2596,17 @@ main hr {
 
 button.active {
     background: black;
-    border-radius: 50%;
+    border-radius: 25%;
     size: 1px;
-    margin-left: 120px;
+    margin-left: 105px;
+    padding: 25px;
 }
 
 button.white {
     background: white;
-    border-radius: 50%;
+    border-radius: 25%;
     margin-left: 10px;
+    padding: 25px;
 }
 
 .row {
@@ -2724,32 +2698,113 @@ button.white {
     position: relative;
 }
 
+.pc-name {
+    color: #f7f7f7;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+.flex-1 {
+    color: #f7f7f7;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-left: 13px;
+    margin-top: -15px;
+    background-color: rgb(0, 250, 12);
+    border-radius: 6px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    width: 80px;
+    padding-left: 5px;
+}
+
+h1:hover{
+    color: #2563eb;  
+}
+
+.flex-1:hover {
+    background-color: rgb(42, 150, 0);
+    border-color: var(--color-second);
+    color: #f7f7f7;
+}
+
+.flex-2 {
+    margin-left: 255px;
+    margin-top: -39px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+}
+
+.flex-3 {
+    font-weight: 600;
+    margin-top: -40px;
+    margin-left: 105px;
+    letter-spacing: 2px;
+}
+
+.card-1 {
+    width: 320px;
+    height: 480px;
+    margin-left: 0px;
+    background-color: #292929 !important;
+    border-radius: 15px;
+}
+
+.card-2 {
+    width: 320px;
+    height: 480px;
+    margin-left: 0px;
+    background-color: #292929 !important;
+    border-radius: 15px;
+}
+
+.card-3 {
+    width: 320px;
+    height: 480px;
+    margin-left: 0px;
+    background-color: #292929 !important;
+    border-radius: 15px;
+}
+
+.card-4 {
+    width: 320px;
+    height: 480px;
+    margin-left: 0px;
+    background-color: #292929 !important;
+    border-radius: 15px;
+}
+
 .card-9 {
-    width: 315px;
+    width: 320px;
     height: 220px;
     background-color: #292929 !important;
-    border-radius: 25px;
+    border-radius: 15px;
 }
 
 .card-10 {
-    width: 315px;
+    width: 320px;
     height: 220px;
     background-color: #292929 !important;
-    border-radius: 25px;
+    border-radius: 15px;
 }
 
 .card-11 {
-    width: 315px;
+    width: 320px;
     height: 220px;
     background-color: #292929 !important;
-    border-radius: 25px;
+    border-radius: 15px;
 }
 
 .card-12 {
-    width: 315px;
+    width: 320px;
     height: 220px;
     background-color: #292929 !important;
-    border-radius: 25px;
+    border-radius: 15px;
     align-items: center;
     margin-bottom: 50px;
 }
@@ -2761,7 +2816,7 @@ button.white {
 
 .card-13 {
     background-color: #292929 !important;
-    width: 1503px;
+    width: 1508px;
     margin-left: 0px;
     margin-top: -80px;
     margin-bottom: 40px;
@@ -2771,6 +2826,7 @@ button.white {
 .text-xlx {
     text-align: center;
     margin: 0 auto;
+    margin-bottom: 20px;
     font-weight: bold;
     letter-spacing: 3px;
 }
@@ -2805,6 +2861,17 @@ button.white {
     margin-top: 10px;
     border: none;
     background-color: rgb(44, 135, 191);
+    letter-spacing: 3px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.text-conf-3:hover {
+    margin-left: 20px;
+    color: white;
+    margin-top: 10px;
+    border: none;
+    background-color: #2563eb;
     letter-spacing: 3px;
     border-radius: 10px;
     font-weight: bold;
@@ -6500,19 +6567,21 @@ button.white {
         border-radius: 6px;
         padding-top: 5.7px;
         padding-bottom: 5.9px;
-        width: 80px;
+        width: 95px;
         padding-left: 5px;
     }
 
     .flex-2 {
-        margin-left: 97px;
+        margin-left: 110px;
         margin-top: -36px;
+        width: 33px;
     }
 
     .flex-3 {
         margin-top: -82px;
         margin-left: 13px;
         letter-spacing: 2px;
+        width: 130px;
     }
 
     .colors {
@@ -6520,74 +6589,78 @@ button.white {
         border-top-right-radius: 15px;
     }
 
+    .pic {
+    display: flex;
+    }
+
     .card-1 {
         margin-top: 20px;
-        width: 135px;
-        height: 275px;
-        margin-left: 13px;
+        width: 152.5px;
+        height: 295px;
+        margin-left: 3px;
         background-color: #292929 !important;
         border-radius: 15px;
     }
 
     .card-2 {
-        margin-top: -355px;
-        width: 135px;
-        height: 275px;
-        margin-left: 168px;
+        margin-top: -375px;
+        width: 152.5px;
+        height: 295px;
+        margin-left: 160.5px;
         background-color: #292929 !important;
         border-radius: 15px;
     }
 
     .card-3 {
-        margin-top: -140px;
-        width: 135px;
-        height: 275px;
-        margin-left: 13px;
+        margin-top: -155px;
+        width: 152.5px;
+        height: 295px;
+        margin-left: 3px;
         background-color: #292929 !important;
         border-radius: 15px;
     }
 
     .card-4 {
-        margin-top: -355px;
-        width: 135px;
-        height: 275px;
-        margin-left: 168px;
+        margin-top: -375px;
+        width: 152.5px;
+        height: 295px;
+        margin-left: 160.5px;
         background-color: #292929 !important;
         border-radius: 15px;
     }
 
     .card-9 {
         margin-top: 20px;
-        width: 135px;
+        width: 152.5px;
         height: 170px;
-        margin-left: 13px;
+        margin-left: 3px;
         background-color: #292929 !important;
         border-radius: 15px;
     }
 
     .card-10 {
         margin-top: -250px;
-        width: 135px;
+        width: 152.5px;
         height: 170px;
-        margin-left: 168px;
+        margin-left: 160.5px;
         background-color: #292929 !important;
         border-radius: 15px;
     }
 
     .card-11 {
-        margin-top: -140px;
-        width: 135px;
+        margin-top: -155px;
+        width: 152.5px;
         height: 140px;
-        margin-left: 13px;
+        margin-left: 3px;
         background-color: #292929 !important;
         border-radius: 15px;
     }
 
     .card-12 {
-        margin-top: -220px;
-        width: 135px;
+        margin-top: -235px;
+        width: 152.5px;
         height: 140px;
-        margin-left: 168px;
+        margin-left: 160.5px;
         background-color: #292929 !important;
         border-radius: 15px;
         align-items: center;
@@ -6596,11 +6669,11 @@ button.white {
 
     .card-13 {
         background-color: #292929 !important;
-        width: 290px;
-        margin-left: -20px;
-        margin-top: -120px;
-        margin-bottom: 50px;
-        border-radius: 25px;
+        width: 310px;
+        margin-left: -30px;
+        margin-top: -155px;
+        margin-bottom: 30px;
+        border-radius: 15px;
     }
 
     .card-14 {
@@ -6666,6 +6739,7 @@ button.white {
         margin-top: 50px;
         margin-left: -350px;
         margin-bottom: 50px;
+        width: 290px;
     }
 
     .text-conf-3 {
@@ -6685,35 +6759,57 @@ button.white {
         padding-bottom: 10px;
     }
 
+    footer .blocks p {
+        width: 160px;
+    }
+
+    footer .left {
+        width: 160px;
+        margin-left: -69px;
+    }
+
     footer .absolute {
-        font-size: 16px;
-        margin-left: 60px;
+        font-size: 14px;
+        margin-left: -50px;
         font-weight: 600;
     }
 
     footer .abspc {
         font-size: 12px;
         margin-top: 40px;
-        margin-left: 140px;
+        margin-left: 0px;
         font-weight: 600;
     }
 
-    footer .abus {
-        margin-left: 95px;
+    footer .midle {
         display: none;
     }
 
+    /*footer .abus {
+        display: none;
+    }*/
+
+    footer .right {
+        width: 160px;
+        margin-right: 69px;
+    }
+
     footer .oc {
-        margin-left: 95px;
+        margin-left: 0px;
         font-size: 10px;
-        font-weight: 600;
+        font-weight: 700;
     }
 
     footer .bl {
-        margin-left: 75px;
-        font-size: 14px;
+        margin-left: 0px;
+        font-size: 12px;
         margin-bottom: -10px;
         font-weight: 600;
+    }
+
+    .footer>p {
+        text-align: center;
+        margin-bottom: 10px;
     }
 
     .p-41 {
@@ -6733,7 +6829,7 @@ button.white {
     button.active {
         margin-top: -50px;
         border-radius: 5px;
-        margin-left: 35px;
+        margin-left: 45px;
     }
 
     button.white {
@@ -6743,8 +6839,8 @@ button.white {
 
     .colors>button {
         padding: 0.8em;
-        margin-top: 5px;
-        margin-bottom: 59px;
+        margin-top: 0px;
+        margin-bottom: 56px;
     }
 
     .thumbnail {
@@ -6790,7 +6886,9 @@ button.white {
     .thumbnail .item .content .description {
         font-weight: 300;
     }
+
 }
+
 
 
 
