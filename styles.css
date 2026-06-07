@@ -8702,7 +8702,7 @@ h1:hover {
     }
 
     .carousel .list .item .content .buttons {
-        margin-top: 85px;
+        margin-top: 82px;
         margin-left: 133px;
         grid-template-columns: repeat(2, 90px);
         grid-template-rows: 30px;
@@ -8929,16 +8929,16 @@ h1:hover {
     }
 
     .inline-flex {
-        margin-left: 55px;
+        margin-left: 67.5px;
         margin-top: 10px;
     }
 
     .w-16 {
-        width: 42.5px;
+        width: 45px;
     }
 
     .h-16 {
-        height: 42.5px;
+        height: 45px;
     }
 
     .text-xlx {
