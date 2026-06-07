@@ -8917,7 +8917,7 @@ h1:hover {
         border-radius: 10px;
     }
 
-    .py-26 .object-cover {
+    .py-26.object-cover {
         border-bottom-right-radius: 10px;
         border-top-right-radius: 0px;
         border-top-left-radius: 0px;
