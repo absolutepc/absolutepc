@@ -1,53 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-
-    <link rel="stylesheet" href="/profile.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" 
-    integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" 
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Вход — Absolute PC</title>
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
-<body>
-    <div class="container">
-        <h1>Login</h1>
 
-        <form action="#">
-            <div class="form_control">
-                <i class="fa-solid fa-user"></i>
-                <input type="text" placeholder="Username">
-            </div>
-            <div class="form_control">
-                <i class="fa-solid fa-lock"></i>
-                <input type="text" placeholder="Password">
-            </div>
+<body class="login-page">
+    <div class="login-card">
+        <a href="/app/index.html" class="login-back"><i class="fas fa-arrow-left"></i> На главную</a>
 
-            <div class="check_forgot">
-                <div class="check">
-                    <input type="checkbox">
-                    <p>Remember me</p>
-                </div>
-                <a href="#">Forgot password</a>
+        <div class="login-card__brand">
+            <i class="fas fa-desktop"></i>
+            <h1>Absolute PC</h1>
+            <p>Вход в личный кабинет</p>
+        </div>
+
+        <form id="userLoginForm">
+            <div class="login-field">
+                <label for="username">Email или логин</label>
+                <input type="text" id="username" name="username" required placeholder="user@absolutepc.ru"
+                    autocomplete="username">
             </div>
-            <div class="btn">
-                <button type="submit">
-                    Login
-                </button>
+            <div class="login-field">
+                <label for="password">Пароль</label>
+                <input type="password" id="password" name="password" required placeholder="••••••••"
+                    autocomplete="current-password">
             </div>
-            <div class="register_link">
-                <span>Don't have an Account?<a href="#">Register</a></span>
+            <div class="login-options">
+                <label><input type="checkbox" id="remember"> Запомнить меня</label>
+                <a href="#">Забыли пароль?</a>
             </div>
-             
+            <button type="submit" class="login-submit">Войти</button>
+            <div class="login-error" id="loginError"></div>
         </form>
-    </div>
-    <script>
-    var width = window.innerWidth;
-    var height = window.innerHeight;
-    console.log("Ширина body: " + width + "px");
-    console.log("Высота body: " + height + "px");
-    </script>
 
+        <div class="login-footer">
+            Нет аккаунта? <a href="#">Зарегистрироваться</a>
+        </div>
+
+        <div class="login-hint">
+            Демо-доступ: <strong>user@absolutepc.ru</strong> / <strong>user123</strong><br>
+            Админ-панель: <a href="/admin.html">вход для администратора</a>
+        </div>
+    </div>
+
+    <script src="/js/auth.js"></script>
+    <script>
+        document.getElementById('userLoginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const errorEl = document.getElementById('loginError');
+            const result = Auth.login({ username, password });
+
+            if (result.ok) {
+                if (result.role === 'admin') {
+                    location.href = '/login.html';
+                } else {
+                    location.href = '/app/index.html';
+                }
+                return;
+            }
+
+            errorEl.textContent = result.error;
+            errorEl.classList.add('is-visible');
+        });
+
+        if (Auth.isAuthenticated() && Auth.getRole() === 'user') {
+            location.href = '/app/index.html';
+        }
+    </script>
+    <script src="/shop.js"></script>
 </body>
+
 </html>

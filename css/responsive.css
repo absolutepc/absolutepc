@@ -1,0 +1,149 @@
+/* Site-wide responsive navigation and utilities */
+.site-nav {
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.mobile-nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 10px;
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  header .container {
+    position: relative;
+    flex-wrap: wrap;
+  }
+
+  .mobile-nav-toggle {
+    display: inline-flex;
+  }
+
+  nav.site-nav,
+  header nav.hidden {
+    display: none !important;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    padding: 12px;
+    z-index: 60;
+  }
+
+  nav.site-nav.site-nav--open,
+  header nav.hidden.site-nav--open {
+    display: flex !important;
+  }
+
+  .site-nav a {
+    padding: 12px 14px;
+    border-radius: 8px;
+  }
+
+  .site-nav a:hover {
+    background: #eff6ff;
+  }
+}
+
+@media (min-width: 768px) {
+  nav.site-nav,
+  header nav.hidden.md\\:flex {
+    display: flex !important;
+  }
+
+  .md\\:hidden {
+    display: none !important;
+  }
+}
+
+/* Carousel mobile improvements */
+@media (max-width: 768px) {
+  .carousel {
+    height: 70vh !important;
+    min-height: 420px;
+  }
+
+  .carousel .list .item .content {
+    left: 16px !important;
+    right: 16px !important;
+    width: auto !important;
+    max-width: none !important;
+  }
+
+  .carousel .list .item .content .des {
+    display: none;
+  }
+
+  .carousel .thumbnail {
+    bottom: 10px !important;
+    gap: 8px !important;
+  }
+
+  .carousel .thumbnail .item {
+    width: 90px !important;
+    height: 70px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel .list .item .content .title {
+    font-size: 24px !important;
+  }
+
+  .carousel .list .item .content .topic {
+    font-size: 18px !important;
+  }
+}
+
+/* Popular builds cards */
+@media (max-width: 640px) {
+  .card-1, .card-2, .card-3, .card-4 {
+    margin-bottom: 24px;
+  }
+
+  button.active, button.white {
+    margin-left: 20px !important;
+    padding: 18px !important;
+  }
+}
+
+/* Footer responsive */
+@media (max-width: 768px) {
+  .site-footer__grid {
+    gap: 28px;
+  }
+
+  .footer .blocks {
+    flex-direction: column !important;
+    gap: 24px;
+    text-align: center;
+  }
+}
+
+/* Configurator CTA section */
+@media (max-width: 768px) {
+  .card-13 .flex.flex-col.md\\:flex-row {
+    flex-direction: column;
+  }
+
+  .card-14 {
+    text-align: center;
+  }
+
+  .text-conf, .text-conf-2, .text-conf-3 {
+    text-align: center;
+  }
+}
