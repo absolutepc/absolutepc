@@ -227,19 +227,30 @@
   }
 
   function extractProductFromDom(button) {
+    if (button.dataset.id || button.dataset.name) {
+      return {
+        id: button.dataset.id || button.dataset.name,
+        name: button.dataset.name || 'Товар',
+        price: parsePrice(button.dataset.price || '0'),
+        image: button.dataset.image || '/imig/5.webp',
+        qty: 1,
+        type: button.dataset.type || 'product'
+      };
+    }
+
     const product = button.closest('.js-product');
     if (!product) return null;
 
-    const imageEl = product.querySelector('.js-image-card, .product-image img, img');
-    const titleEl = product.querySelector('.js-title-card, .product-title, h3');
-    const priceEl = product.querySelector('.js-price-card, .product-price .price, .price');
+    const imageEl = product.querySelector('.pic img, .js-image-card, .product-image img, img');
+    const titleEl = product.querySelector('.pc-name, .js-title-card, .product-title, h3');
+    const priceEl = product.querySelector('.js-price-card, .product-price .price, .price, .flex-1 span');
     const linkEl = product.querySelector('.js-link-card, a[id]');
 
     return {
-      id: linkEl?.id || titleEl?.textContent?.trim() || Date.now(),
+      id: linkEl?.id || product.dataset.id || titleEl?.textContent?.trim() || Date.now(),
       name: titleEl?.textContent?.trim() || 'Товар',
-      price: parsePrice(priceEl?.textContent || priceEl?.dataset?.price || '0'),
-      image: imageEl?.src || imageEl?.getAttribute('src') || '/imig/5.webp',
+      price: parsePrice(product.dataset.price || priceEl?.textContent || priceEl?.dataset?.price || '0'),
+      image: product.dataset.image || imageEl?.src || imageEl?.getAttribute('src') || '/imig/5.webp',
       qty: 1
     };
   }
@@ -262,10 +273,11 @@
           return;
         }
 
-        if (target.classList.contains('js-buy-button')) {
+        const buyButton = target.closest('.js-buy-button');
+        if (buyButton) {
           event.preventDefault();
           event.stopImmediatePropagation();
-          const product = extractProductFromDom(target);
+          const product = extractProductFromDom(buyButton);
           if (product) {
             addItem(product);
             setCartOpen(true);
