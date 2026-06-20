@@ -81,65 +81,63 @@
   }
 
   function getElements() {
+    const cart = document.querySelector('body > .site-cart.js-cart, body > .js-cart, .site-cart.js-cart');
+    const overlay = document.querySelector('body > .site-cart-overlay, body > .js-overlay');
     return {
-      cart: document.querySelector('.js-cart'),
-      overlay: document.querySelector('.js-overlay'),
-      list: document.querySelector('.js-cart-list'),
-      empty: document.querySelector('.js-cart-empty-container'),
-      order: document.querySelector('.js-cart-order-container'),
+      cart,
+      overlay,
+      list: cart?.querySelector('.js-cart-list') || document.querySelector('.js-cart-list'),
+      empty: cart?.querySelector('.js-cart-empty-container') || document.querySelector('.js-cart-empty-container'),
+      order: cart?.querySelector('.js-cart-order-container') || document.querySelector('.js-cart-order-container'),
       total: document.querySelector('.js-cart-total-price'),
       triggers: document.querySelectorAll('.js-cart-btn, .js-cart-icon, .site-cart-trigger')
     };
   }
 
+  function removeLegacyCartPanels() {
+    document.querySelectorAll('.main .js-cart, .main .cart.js-cart, main .js-cart').forEach((cart) => {
+      cart.remove();
+    });
+    document.querySelectorAll('.main .js-overlay, main .js-overlay').forEach((overlay) => {
+      overlay.remove();
+    });
+  }
+
   function ensureCartMarkup() {
-    if (!document.querySelector('.js-cart')) {
+    removeLegacyCartPanels();
+
+    let cart = document.querySelector('body > .js-cart, body > .site-cart, .site-cart.js-cart');
+    if (!cart) {
+      cart = document.querySelector('.js-cart');
+    }
+
+    if (!cart || cart.closest('.main, main')) {
       document.body.insertAdjacentHTML('beforeend', cartPanelHtml);
+      return;
+    }
+
+    cart.classList.add('site-cart');
+    if (!cart.querySelector('.js-cart-checkout')) {
+      const order = cart.querySelector('.js-cart-order-container');
+      if (order && !order.querySelector('.js-cart-checkout')) {
+        const oldBtn = order.querySelector('.btn-order');
+        if (oldBtn) {
+          oldBtn.type = 'button';
+          oldBtn.classList.add('site-cart__submit', 'js-cart-checkout');
+        } else {
+          order.insertAdjacentHTML(
+            'beforeend',
+            '<button type="button" class="site-cart__submit btn-order js-cart-checkout">Оформить заказ</button>'
+          );
+        }
+      }
     }
   }
 
   function ensureCartTrigger() {
-    const legacyLink = document.querySelector(
-      'a[href="shop.html"], a[href="/app/shop.html"], a[href*="shop.html"]'
-    );
-    if (legacyLink && !document.querySelector('.js-cart-btn')) {
-      const wrapper = legacyLink.closest('.p-2, button, .header-actions') || legacyLink.parentElement;
-      const trigger = document.createElement('button');
-      trigger.type = 'button';
-      trigger.className = 'site-cart-trigger js-cart-btn js-cart-icon';
-      trigger.setAttribute('aria-label', 'Открыть корзину');
-      trigger.innerHTML = CART_SVG + '<span class="site-cart-trigger__badge js-cart-badge" data-count="0"></span>';
-      if (wrapper && wrapper.tagName !== 'A') {
-        wrapper.replaceWith(trigger);
-      } else if (legacyLink.parentElement) {
-        legacyLink.parentElement.replaceWith(trigger);
-      }
-    }
-
-    document.querySelectorAll('.shopping-cart.js-cart-btn').forEach((el) => {
-      if (!el.querySelector('.js-cart-badge')) {
-        const badge = document.createElement('span');
-        badge.className = 'site-cart-trigger__badge js-cart-badge counter';
-        badge.dataset.count = '0';
-        el.appendChild(badge);
-      }
-    });
-
-    if (!document.querySelector('.js-cart-btn')) {
-      const actions =
-        document.querySelector('.header-actions') ||
-        document.querySelector('header .icons') ||
-        document.querySelector('header .flex.items-center.space-x-4:last-child');
-      if (actions) {
-        const trigger = document.createElement('button');
-        trigger.type = 'button';
-        trigger.className = 'site-cart-trigger js-cart-btn';
-        trigger.setAttribute('aria-label', 'Открыть корзину');
-        trigger.innerHTML = CART_SVG + '<span class="site-cart-trigger__badge js-cart-badge" data-count="0"></span>';
-        actions.appendChild(trigger);
-      }
-    }
+    /* handled by site-header.js */
   }
+
 
   function renderCart() {
     const { list, empty, order, total } = getElements();
@@ -311,8 +309,10 @@
   function init() {
     if (window.__ABS_SITE_CART_INIT__) return;
     window.__ABS_SITE_CART_INIT__ = true;
+    if (typeof window.ABS_HEADER_UPGRADE === 'function') {
+      window.ABS_HEADER_UPGRADE();
+    }
     ensureCartMarkup();
-    ensureCartTrigger();
     bindEvents();
     renderCart();
   }

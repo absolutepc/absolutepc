@@ -26,17 +26,15 @@ document.addEventListener('click', ({ target }) => {
     }
   });
 
-  if (!window.ABS_CART && !document.querySelector('script[src="/js/site-cart.js"]')) {
-    const cartScript = document.createElement('script');
-    cartScript.src = '/js/site-cart.js';
-    cartScript.defer = true;
-    document.body.appendChild(cartScript);
+  function loadScript(src, defer) {
+    if (document.querySelector(`script[src="${src}"]`)) return;
+    const script = document.createElement('script');
+    script.src = src;
+    if (defer) script.defer = true;
+    document.body.appendChild(script);
   }
 
-  if (!window.__ABS_FOOTER_INIT__ && !document.querySelector('script[src="/js/site-footer.js"]')) {
-    const footerScript = document.createElement('script');
-    footerScript.src = '/js/site-footer.js';
-    footerScript.defer = true;
-    document.body.appendChild(footerScript);
-  }
+  loadScript('/js/site-header.js', false);
+  loadScript('/js/site-cart.js', true);
+  loadScript('/js/site-footer.js', true);
 })();

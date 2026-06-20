@@ -13,6 +13,7 @@
         imagesizes="100vw">
     <link rel="stylesheet" href="/_next/static/css/styles.css" data-precedence="next">
     <link rel="stylesheet" href="/css/cart.css">
+    <link rel="stylesheet" href="/css/footer.css">
     <link rel="preload" as="script" fetchpriority="low" href="/_next/static/chunks/webpack-b94e3ec6dd3a56d0.js">
     <script src="/_next/static/chunks/app/page-8ff94ae303f91157.js" async=""></script>
     <meta name="next-size-adjust" content="">
@@ -39,7 +40,7 @@
                         <a class="text-gray-700 hover:text-blue-600 font-medium" href="/app/about.html">О нас</a>
                         <a class="text-gray-700 hover:text-blue-600 font-medium" href="/app/contacts.html">Контакты</a>
                     </nav>
-                    <div class="flex items-center space-x-4">
+                    <div class="flex items-center space-x-4 header-actions">
                         <button class="p-2 text-gray-600 hover:text-blue-600">
                             <a href="search.html">
                                 <i class="fas fa-search"></i>
@@ -50,13 +51,12 @@
                                 <i class="fas fa-user"></i>
                             </a>
                         </button>
-                        <div class="p-2">
-                            <button class="p-2 p-2 text-gray-600 hover:text-blue-600">
-                                <a href="shop.html">
-                                    <i class="fas fa-shopping-cart text-xl"></i>
-                                </a>
-                            </button>
-                        </div>
+                                            <button type="button" class="site-cart-trigger js-cart-btn" aria-label="РћС‚РєСЂС‹С‚СЊ РєРѕСЂР·РёРЅСѓ">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 20" aria-hidden="true">
+                            <path d="M4.258 0c.45 0 .842.31.944.738l.749 2.649h15.132a.972.972 0 01.945 1.207L20.21 11.94a.973.973 0 01-.945.74H7.643a.973.973 0 01-.947-.748l.005.017L3.503 1.947H.973A.973.973 0 01.973 0h3.285zM19.84 5.334H6.497l1.895 5.398h10.113l1.335-5.398zM8.857 13.699a2.719 2.719 0 012.715 2.717 2.719 2.719 0 01-2.715 2.716 2.719 2.719 0 01-2.716-2.716 2.719 2.719 0 012.716-2.717zm0 1.491a1.225 1.225 0 100 2.45 1.225 1.225 0 000-2.45zM17.901 13.699a2.719 2.719 0 012.715 2.717 2.719 2.719 0 01-2.715 2.716 2.719 2.719 0 01-2.715-2.716 2.719 2.719 0 012.715-2.717zm0 1.491a1.225 1.225 0 100 2.45 1.225 1.225 0 000-2.45z"/>
+                        </svg>
+                        <span class="site-cart-trigger__badge js-cart-badge" data-count="0"></span>
+                    </button>
                     </div>
                 </div>
             </div>
@@ -502,30 +502,7 @@
                 </div>
             </section>
         </main>
-        <footer class="footer">
-            <div class="blocks container">
-                <div>
-                    <span class="ABSOLUTE">ABSOLUTE PC</span>
-                    <p class="abspc">Мы уже более 5 лет успешно собираем системы для наших клиентов</p>
-                </div>
-                <div>
-                    <h4>About us</h4>
-                    <ul>
-                        <li>Reviews</li>
-                        <li>Career</li>
-                        <li>Location</li>
-                        <li>Contact us</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Наши Контакты</h4>
-                    <p class="bl">Свяжитесь с нами если возникли проблемы</p>
-                    <p class="bl">+7(962)654-29-59</p>
-                </div>
-            </div>
-            <hr>
-            <p>© Copyright 2025 ABSOLUTE PC. Все права защищены</p>
-        </footer>
+        <footer class="site-footer"></footer>
 
     </div><!--$--><!--/$--><!--$--><!--/$-->
     <script src="/_next/static/chunks/webpack-b94e3ec6dd3a56d0.js" async=""></script>
@@ -537,6 +514,7 @@
     <script>self.__next_f.push([1, "12:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\nd:null\n"])</script>
     <script>self.__next_f.push([1, "16:{\"metadata\":[[\"$\",\"title\",\"0\",{\"children\":\"Absolute PC - Магазин игровых ПК\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Лучшие игровые компьютеры и комплектующие по выгодным ценам\"}]],\"error\":null,\"digest\":\"$undefined\"}\n10:{\"metadata\":\"$16:metadata\",\"error\":null,\"digest\":\"$undefined\"}\n"])</script>
     <next-route-announcer style="position: absolute;"></next-route-announcer>
+    <script src="/js/mobile-nav.js"></script>
     <script src="/shop.js"></script>
 </body>
 

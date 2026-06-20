@@ -10,8 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
       toggle.innerHTML = '<i class="fas fa-bars"></i>';
 
       const actions =
+        header.querySelector('.header-actions') ||
         header.querySelector('.flex.items-center.space-x-4') ||
-        header.querySelector('.header-actions');
+        header.querySelector('.row.jcc.aic');
       if (actions) {
         header.insertBefore(toggle, actions);
       } else {
